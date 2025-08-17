@@ -32,3 +32,8 @@ Thumbs.db
 
 # Angular specific
 .angular/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
