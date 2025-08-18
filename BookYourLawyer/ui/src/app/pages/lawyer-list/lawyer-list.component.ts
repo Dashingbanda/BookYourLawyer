@@ -1,13 +1,112 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { Lawyer } from "../../interfaces/lawyer.interface";
 
 @Component({
-  selector: 'app-lawyer-list',
-  templateUrl: './lawyer-list.component.html',
-  styleUrls: ['./lawyer-list.component.scss']
+  selector: "app-lawyer-list",
+  templateUrl: "./lawyer-list.component.html",
+  styleUrls: ["./lawyer-list.component.scss"],
 })
 export class LawyerListComponent {
-  lawyers = [
-    { id: 1, name: 'John Doe', specialization: 'Criminal Law' },
-    { id: 2, name: 'Jane Smith', specialization: 'Family Law' }
+  lawyers: Lawyer[] = [
+    {
+      id: 1,
+      name: "John Doe",
+      specialization: "Criminal Law",
+      education: "LLB from Harvard University",
+      totalCases: 120,
+      casesWon: 95,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      specialization: "Family Law",
+      education: "LLB from Oxford University",
+      totalCases: 80,
+      casesWon: 70,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 3,
+      name: "Rajesh Kumar",
+      specialization: "Corporate Law",
+      education: "LLB from National Law School of India University",
+      totalCases: 150,
+      casesWon: 130,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 4,
+      name: "Emily Johnson",
+      specialization: "Intellectual Property Law",
+      education: "LLM from Stanford University",
+      totalCases: 95,
+      casesWon: 82,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 5,
+      name: "Michael Brown",
+      specialization: "Civil Rights Law",
+      education: "LLB from Yale University",
+      totalCases: 110,
+      casesWon: 88,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 6,
+      name: "Sophia Martinez",
+      specialization: "Immigration Law",
+      education: "LLB from Cambridge University",
+      totalCases: 75,
+      casesWon: 63,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 7,
+      name: "David Wilson",
+      specialization: "Environmental Law",
+      education: "LLB from University of California, Berkeley",
+      totalCases: 65,
+      casesWon: 54,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 8,
+      name: "Aisha Khan",
+      specialization: "Constitutional Law",
+      education: "LLM from London School of Economics",
+      totalCases: 140,
+      casesWon: 120,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 9,
+      name: "Carlos Rivera",
+      specialization: "Tax Law",
+      education: "LLB from Columbia University",
+      totalCases: 90,
+      casesWon: 76,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
+    {
+      id: 10,
+      name: "Meera Patel",
+      specialization: "Labor and Employment Law",
+      education: "LLB from University of Delhi",
+      totalCases: 105,
+      casesWon: 91,
+      imageUrl: "assets/images/john-doe.jpg",
+      location: "New York, USA",
+    },
   ];
 }

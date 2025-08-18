@@ -1,6 +1,12 @@
-<h2>Available Lawyers</h2>
-
-<mat-card *ngFor="let lawyer of lawyers" class="lawyer-card" [routerLink]="['/lawyers', lawyer.id]">
-    <mat-card-title>{{ lawyer.name }}</mat-card-title>
-    <mat-card-subtitle>{{ lawyer.specialization }}</mat-card-subtitle>
-</mat-card>
+<div class="lawyer-list-container">
+  <h2>Our Lawyers</h2>
+  <div class="lawyer-cards">
+    <div class="lawyer-card" *ngFor="let lawyer of lawyers">
+      <h3>{{ lawyer.name }}</h3>
+      <p><strong>Specialization:</strong> {{ lawyer.specialization }}</p>
+      <p><strong>Education:</strong> {{ lawyer.education }}</p>
+      <p><strong>Total Cases Fought:</strong> {{ lawyer.totalCases }}</p>
+      <p><strong>Cases Won:</strong> {{ lawyer.casesWon }}</p>
+    </div>
+  </div>
+</div>
