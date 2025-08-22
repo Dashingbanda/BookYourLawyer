@@ -1,0 +1,6 @@
+<h2>My Bookings</h2>
+<ul>
+  <li *ngFor="let booking of bookings">
+    {{ booking.date }} - {{ booking.lawyer.name }} ({{ booking.status }})
+  </li>
+</ul>

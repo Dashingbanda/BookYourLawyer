@@ -1,0 +1,6 @@
+<nav class="navbar">
+  <a routerLink="/lawyers">Lawyers</a>
+  <a routerLink="/bookings" *ngIf="authService.isLoggedIn()">My Bookings</a>
+  <a routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</a>
+  <button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+</nav>
