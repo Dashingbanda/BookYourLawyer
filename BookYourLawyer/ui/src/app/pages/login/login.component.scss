@@ -1,81 +1,56 @@
-/* filepath: c:\Projects\BookYourLawyer\ui\src\app\pages\login\login.component.scss */
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px); // subtract navbar height if you have it
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+.auth-card {
+  width: 380px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
+  .title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  .subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+  }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
+  .full-width {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
-}
+  .action-btn {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 10px;
+  }
 
-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
+  .switch-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
 
-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.25);
-}
+    a {
+      cursor: pointer;
+      color: #1976d2;
+      font-weight: bold;
+      text-decoration: none;
 
-button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-button:hover:not(:disabled) {
-  background-color: #0056b3;
-}
-
-p {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-a {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

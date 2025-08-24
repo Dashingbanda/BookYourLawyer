@@ -1,12 +1,36 @@
 <div class="lawyer-list-container">
-  <h2>Our Lawyers</h2>
+  <h2 class="page-title">Our Lawyers</h2>
+
   <div class="lawyer-cards">
-    <div class="lawyer-card" *ngFor="let lawyer of lawyers">
-      <h3>{{ lawyer.name }}</h3>
-      <p><strong>Specialization:</strong> {{ lawyer.specialization }}</p>
-      <p><strong>Education:</strong> {{ lawyer.education }}</p>
-      <p><strong>Total Cases Fought:</strong> {{ lawyer.totalCases }}</p>
-      <p><strong>Cases Won:</strong> {{ lawyer.casesWon }}</p>
-    </div>
+    <mat-card class="lawyer-card" *ngFor="let lawyer of lawyers">
+      <div class="card-content">
+        <!-- Lawyer Image -->
+        <img
+          class="lawyer-image"
+          [src]="lawyer.image || 'assets/lawyer-placeholder.jpg'"
+          alt="{{ lawyer.full_name }}"
+        />
+
+        <!-- Lawyer Info -->
+        <div class="lawyer-info">
+          <h3>{{ lawyer.full_name }}</h3>
+          <p class="practice">{{ lawyer.practice_area }} Lawyer</p>
+
+          <p class="about">{{ lawyer.about }}</p>
+
+          <div class="details">
+            <p><strong>City:</strong> {{ lawyer.city }}</p>
+            <p>
+              <strong>Experience:</strong> {{ lawyer.experience_years }} years
+            </p>
+            <p><strong>Hourly Rate:</strong> ₹{{ lawyer.hourly_rate }}</p>
+          </div>
+
+          <button mat-raised-button color="primary" class="book-btn">
+            Book Consultation
+          </button>
+        </div>
+      </div>
+    </mat-card>
   </div>
 </div>

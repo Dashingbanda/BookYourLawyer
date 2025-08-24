@@ -13,11 +13,13 @@ export class LoginComponent {
   isNewUser: boolean = false;
 
   constructor(private fb: FormBuilder, private router: Router) {
+    // ✅ Login Form
     this.loginForm = this.fb.group({
       username: ["", Validators.required],
       password: ["", Validators.required],
     });
 
+    // ✅ Register Form
     this.registerForm = this.fb.group({
       username: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
@@ -33,7 +35,7 @@ export class LoginComponent {
   login() {
     if (this.loginForm.valid) {
       console.log("Login Successful:", this.loginForm.value);
-      //alert("Login Successful!");
+      // TODO: Replace with AuthService -> Spring Boot API call
       this.router.navigate(["/bookings"]);
     } else {
       alert("Please fill in all required fields.");
@@ -51,7 +53,7 @@ export class LoginComponent {
       }
       console.log("Registration Successful:", this.registerForm.value);
       alert("Account created successfully!");
-      this.isNewUser = false; // Switch back to login form
+      this.isNewUser = false; // ✅ Switch back to login form
     } else {
       alert("Please fill in all required fields.");
     }

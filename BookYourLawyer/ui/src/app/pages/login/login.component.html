@@ -1,83 +1,125 @@
-<div class="login-container">
-  <h2>{{ isNewUser ? "Create an Account" : "Login" }}</h2>
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-title class="title">
+      {{ isNewUser ? "Create Account" : "Welcome Back" }}
+    </mat-card-title>
+    <mat-card-subtitle class="subtitle">
+      {{ isNewUser ? "Sign up to continue" : "Login to continue" }}
+    </mat-card-subtitle>
 
-  <form
-    *ngIf="!isNewUser"
-    [formGroup]="loginForm"
-    (ngSubmit)="login()"
-    class="form"
-  >
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        id="username"
-        formControlName="username"
-        type="text"
-        placeholder="Enter your username"
-      />
-    </div>
+    <!-- Login Form -->
+    <form *ngIf="!isNewUser" [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          formControlName="username"
+          placeholder="Enter username"
+        />
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+          Username is required
+        </mat-error>
+      </mat-form-field>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        formControlName="password"
-        type="password"
-        placeholder="Enter your password"
-      />
-    </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+        />
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
 
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-    <p>New user? <a (click)="toggleForm()">Create an account</a></p>
-  </form>
+      <button
+        mat-raised-button
+        color="primary"
+        class="action-btn"
+        type="submit"
+      >
+        Login
+      </button>
+      <p class="switch-text">
+        Don’t have an account?
+        <a (click)="toggleForm()">Sign up</a>
+      </p>
+    </form>
 
-  <form
-    *ngIf="isNewUser"
-    [formGroup]="registerForm"
-    (ngSubmit)="register()"
-    class="form"
-  >
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        id="username"
-        formControlName="username"
-        type="text"
-        placeholder="Choose a username"
-      />
-    </div>
+    <!-- Register Form -->
+    <form *ngIf="isNewUser" [formGroup]="registerForm" (ngSubmit)="register()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input
+          matInput
+          formControlName="username"
+          placeholder="Choose a username"
+        />
+        <mat-error *ngIf="registerForm.get('username')?.hasError('required')">
+          Username is required
+        </mat-error>
+      </mat-form-field>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        formControlName="email"
-        type="email"
-        placeholder="Enter your email"
-      />
-    </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
+          Enter a valid email address
+        </mat-error>
+      </mat-form-field>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        formControlName="password"
-        type="password"
-        placeholder="Choose a password"
-      />
-    </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          placeholder="Enter password"
+        />
+        <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+          Password must be at least 6 characters
+        </mat-error>
+      </mat-form-field>
 
-    <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        id="confirmPassword"
-        formControlName="confirmPassword"
-        type="password"
-        placeholder="Confirm your password"
-      />
-    </div>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Re-enter password"
+        />
+        <mat-error
+          *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+        >
+          Confirm Password is required
+        </mat-error>
+      </mat-form-field>
 
-    <button type="submit" [disabled]="!registerForm.valid">Register</button>
-    <p>Already have an account? <a (click)="toggleForm()">Login</a></p>
-  </form>
+      <button
+        mat-raised-button
+        color="primary"
+        class="action-btn"
+        type="submit"
+      >
+        Register
+      </button>
+      <p class="switch-text">
+        Already have an account?
+        <a (click)="toggleForm()">Login</a>
+      </p>
+    </form>
+  </mat-card>
 </div>
