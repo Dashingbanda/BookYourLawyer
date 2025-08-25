@@ -1,3 +1,48 @@
-<h2>Lawyer Details</h2>
-<p>Showing details for lawyer with ID: {{ lawyerId }}</p>
-<button mat-raised-button color="primary" routerLink="/bookings">Book Appointment</button>
+<div class="lawyer-profile-container">
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <img [src]="lawyer.image" alt="Lawyer Photo" class="profile-img" />
+    <div class="profile-info">
+      <h2>{{ lawyer.full_name }}</h2>
+      <p><strong>Practice Area:</strong> {{ lawyer.practice_area }}</p>
+      <p><strong>Experience:</strong> {{ lawyer.experience_years }} years</p>
+      <p><strong>City:</strong> {{ lawyer.city }}</p>
+      <p><strong>Hourly Rate:</strong> ₹{{ lawyer.hourly_rate }}</p>
+      <p>{{ lawyer.about }}</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Timeline -->
+  <div class="timeline">
+    <h3>Victories & Cases</h3>
+
+    <div *ngFor="let v of lawyer.victories" class="victory-card">
+      <h4>{{ v.title }}</h4>
+      <p>{{ v.description }}</p>
+      <small><strong>Date:</strong> {{ v.date }}</small
+      ><br />
+      <small><strong>Outcome:</strong> {{ v.outcome }}</small>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Add New Victory -->
+  <div class="add-victory">
+    <h3>Add New Victory</h3>
+    <input
+      type="text"
+      placeholder="Case Title"
+      [(ngModel)]="newVictory.title"
+    />
+    <textarea
+      placeholder="Description"
+      [(ngModel)]="newVictory.description"
+    ></textarea>
+    <input type="date" [(ngModel)]="newVictory.date" />
+    <input type="text" placeholder="Outcome" [(ngModel)]="newVictory.outcome" />
+    <button (click)="addVictory()">Add Victory</button>
+  </div>
+</div>
